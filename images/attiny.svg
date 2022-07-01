@@ -1,0 +1,27 @@
+<svg width="300" height="186" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <rect x="70" y="30" width="90" height="155" fill="transparent" stroke="black" stroke-width="2"></rect>
+  <rect x="50" y="45" width="20" height="20" fill="transparent" stroke="black" stroke-width="1"></rect>
+  <text x="75" y="65" text-anchor="">1</text>
+  <text x="45" y="65" text-anchor="end">RST</text>
+  <rect x="160" y="45" width="20" height="20" fill="transparent" stroke="black" stroke-width="1"></rect>
+  <text x="155" y="65" text-anchor="end">8</text>
+  <text x="185" y="65" text-anchor="">VCC</text>
+  <rect x="50" y="80" width="20" height="20" fill="transparent" stroke="black" stroke-width="1"></rect>
+  <text x="75" y="100" text-anchor="">2</text>
+  <text x="45" y="100" text-anchor="end">P3</text>
+  <rect x="160" y="80" width="20" height="20" fill="transparent" stroke="black" stroke-width="1"></rect>
+  <text x="155" y="100" text-anchor="end">7</text>
+  <text x="185" y="100" text-anchor="">P2</text>
+  <rect x="50" y="115" width="20" height="20" fill="transparent" stroke="black" stroke-width="1"></rect>
+  <text x="75" y="135" text-anchor="">3</text>
+  <text x="45" y="135" text-anchor="end">P4</text>
+  <rect x="160" y="115" width="20" height="20" fill="transparent" stroke="black" stroke-width="1"></rect>
+  <text x="155" y="135" text-anchor="end">6</text>
+  <text x="185" y="135" text-anchor="">P1</text>
+  <rect x="50" y="150" width="20" height="20" fill="transparent" stroke="black" stroke-width="1"></rect>
+  <text x="75" y="170" text-anchor="">4</text>
+  <text x="45" y="170" text-anchor="end">GND</text>
+  <rect x="160" y="150" width="20" height="20" fill="transparent" stroke="black" stroke-width="1"></rect>
+  <text x="155" y="170" text-anchor="end">5</text>
+  <text x="185" y="170" text-anchor="">P0</text>
+</svg>
