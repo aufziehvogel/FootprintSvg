@@ -9,9 +9,10 @@ import (
 
 const (
 	pinSize      = 20
-	packageX     = 70
 	packageY     = 30
 	packageWidth = 90
+	// Reserve a maximum space for labels
+	labelWidth = 100
 )
 
 type chipPackage struct {
@@ -37,6 +38,8 @@ func (p *packageDip) height() int {
 
 func (p *packageDip) draw() {
 	var drawItems []interface{}
+
+	packageX := labelWidth + pinSize
 
 	r := &svgRect{
 		X:           packageX,
@@ -104,7 +107,7 @@ func (p *packageDip) draw() {
 	}
 
 	svg := svg{
-		Width:      300, // TODO: Calculate from actual data
+		Width:      2*labelWidth + 2*pinSize + packageWidth,
 		Height:     p.height() + packageY + 1,
 		XMLNS:      "http://www.w3.org/2000/svg",
 		XMLNSXLink: "http://www.w3.org/1999/xlink",
