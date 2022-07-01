@@ -4,12 +4,14 @@ import (
 	"encoding/xml"
 	"log"
 	"os"
+	"strconv"
 )
 
 const (
-	pinSize  = 20
-	packageX = 30
-	packageY = 30
+	pinSize      = 20
+	packageX     = 70
+	packageY     = 30
+	packageWidth = 90
 )
 
 type chipPackage struct {
@@ -29,17 +31,17 @@ type packageQfp struct {
 	chipPackage
 }
 
-func (p *packageSip) height() int {
-	return len(p.pins)*pinSize + (len(p.pins)-1)*p.pinSpacing + 2*p.pinSpacing
+func (p *packageDip) height() int {
+	return len(p.pins)/2*pinSize + (len(p.pins)/2-1)*p.pinSpacing + 2*p.pinSpacing
 }
 
-func (p *packageSip) draw() {
+func (p *packageDip) draw() {
 	var drawItems []interface{}
 
 	r := &svgRect{
 		X:           packageX,
 		Y:           packageY,
-		Width:       90,
+		Width:       packageWidth,
 		Height:      p.height(),
 		Fill:        "transparent",
 		Stroke:      "black",
@@ -47,8 +49,9 @@ func (p *packageSip) draw() {
 	}
 	drawItems = append(drawItems, r)
 
-	for i, _ := range p.pins {
-		r := &svgRect{
+	// TODO: We assume that len(p.pins) is always an even number
+	for i := 0; i < len(p.pins)/2; i++ {
+		rLeft := &svgRect{
 			X:           packageX - pinSize,
 			Y:           packageY + p.pinSpacing + i*(pinSize+p.pinSpacing),
 			Width:       pinSize,
@@ -57,12 +60,52 @@ func (p *packageSip) draw() {
 			Stroke:      "black",
 			StrokeWidth: 1,
 		}
-		drawItems = append(drawItems, r)
+		pinNumberLeft := &svgText{
+			Text: strconv.Itoa(i + 1),
+			X:    packageX + 5,
+			Y:    packageY + (i+1)*(pinSize+p.pinSpacing),
+		}
+		labelLeft := &svgText{
+			Text:       p.pins[i],
+			X:          packageX - pinSize - 5,
+			Y:          packageY + (i+1)*(pinSize+p.pinSpacing),
+			TextAnchor: "end",
+		}
+		rRight := &svgRect{
+			X:           packageX + packageWidth,
+			Y:           packageY + p.pinSpacing + i*(pinSize+p.pinSpacing),
+			Width:       pinSize,
+			Height:      pinSize,
+			Fill:        "transparent",
+			Stroke:      "black",
+			StrokeWidth: 1,
+		}
+		pinNumberRight := &svgText{
+			Text:       strconv.Itoa(len(p.pins) - i),
+			X:          packageX + packageWidth - 5,
+			Y:          packageY + (i+1)*(pinSize+p.pinSpacing),
+			TextAnchor: "end",
+		}
+		labelRight := &svgText{
+			Text: p.pins[len(p.pins)-i-1],
+			X:    packageX + packageWidth + pinSize + 5,
+			Y:    packageY + (i+1)*(pinSize+p.pinSpacing),
+		}
+
+		drawItems = append(
+			drawItems,
+			rLeft,
+			pinNumberLeft,
+			labelLeft,
+			rRight,
+			pinNumberRight,
+			labelRight,
+		)
 	}
 
 	svg := svg{
-		Width:      300,
-		Height:     p.height() + 50,
+		Width:      300, // TODO: Calculate from actual data
+		Height:     p.height() + packageY + 1,
 		XMLNS:      "http://www.w3.org/2000/svg",
 		XMLNSXLink: "http://www.w3.org/1999/xlink",
 		Items:      drawItems,

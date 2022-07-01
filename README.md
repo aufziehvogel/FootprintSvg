@@ -18,4 +18,4 @@ go build -o footprint
 ./footprint dip8 "ATtiny45" RST P3 P4 GND P0 P1 P2 VCC
 ```
 
-TODO: Add example output for above command
+![ATtiny example](images/attiny.svg)

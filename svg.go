@@ -19,3 +19,11 @@ type svgRect struct {
 	Stroke      string   `xml:"stroke,attr"`
 	StrokeWidth int      `xml:"stroke-width,attr"`
 }
+
+type svgText struct {
+	XMLName    struct{} `xml:"text"`
+	Text       string   `xml:",chardata"`
+	X          int      `xml:"x,attr"`
+	Y          int      `xml:"y,attr"`
+	TextAnchor string   `xml:"text-anchor,attr"`
+}
