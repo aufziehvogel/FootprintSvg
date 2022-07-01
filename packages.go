@@ -16,6 +16,7 @@ const (
 )
 
 type chipPackage struct {
+	name       string
 	pins       []string
 	pinSpacing int
 }
@@ -54,6 +55,13 @@ func (p *packageDip) draw() {
 
 	// TODO: We assume that len(p.pins) is always an even number
 	for i := 0; i < len(p.pins)/2; i++ {
+		titleText := &svgText{
+			Text:       p.name,
+			X:          packageX + (packageWidth / 2),
+			Y:          20,
+			TextAnchor: "middle",
+		}
+
 		rLeft := &svgRect{
 			X:           packageX - pinSize,
 			Y:           packageY + p.pinSpacing + i*(pinSize+p.pinSpacing),
@@ -97,6 +105,7 @@ func (p *packageDip) draw() {
 
 		drawItems = append(
 			drawItems,
+			titleText,
 			rLeft,
 			pinNumberLeft,
 			labelLeft,

@@ -3,6 +3,7 @@ package main
 func main() {
 	p := packageDip{
 		chipPackage: chipPackage{
+			name: "ATtiny45",
 			pins: []string{
 				"RST",
 				"P3",

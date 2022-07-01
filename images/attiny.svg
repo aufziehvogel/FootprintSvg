@@ -1,23 +1,27 @@
 <svg width="330" height="186" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <rect x="120" y="30" width="90" height="155" fill="transparent" stroke="black" stroke-width="2"></rect>
+  <text x="165" y="20" text-anchor="middle">ATtiny45</text>
   <rect x="100" y="45" width="20" height="20" fill="transparent" stroke="black" stroke-width="1"></rect>
   <text x="125" y="65" text-anchor="">1</text>
   <text x="95" y="65" text-anchor="end">RST</text>
   <rect x="210" y="45" width="20" height="20" fill="transparent" stroke="black" stroke-width="1"></rect>
   <text x="205" y="65" text-anchor="end">8</text>
   <text x="235" y="65" text-anchor="">VCC</text>
+  <text x="165" y="20" text-anchor="middle">ATtiny45</text>
   <rect x="100" y="80" width="20" height="20" fill="transparent" stroke="black" stroke-width="1"></rect>
   <text x="125" y="100" text-anchor="">2</text>
   <text x="95" y="100" text-anchor="end">P3</text>
   <rect x="210" y="80" width="20" height="20" fill="transparent" stroke="black" stroke-width="1"></rect>
   <text x="205" y="100" text-anchor="end">7</text>
   <text x="235" y="100" text-anchor="">P2</text>
+  <text x="165" y="20" text-anchor="middle">ATtiny45</text>
   <rect x="100" y="115" width="20" height="20" fill="transparent" stroke="black" stroke-width="1"></rect>
   <text x="125" y="135" text-anchor="">3</text>
   <text x="95" y="135" text-anchor="end">P4</text>
   <rect x="210" y="115" width="20" height="20" fill="transparent" stroke="black" stroke-width="1"></rect>
   <text x="205" y="135" text-anchor="end">6</text>
   <text x="235" y="135" text-anchor="">P1</text>
+  <text x="165" y="20" text-anchor="middle">ATtiny45</text>
   <rect x="100" y="150" width="20" height="20" fill="transparent" stroke="black" stroke-width="1"></rect>
   <text x="125" y="170" text-anchor="">4</text>
   <text x="95" y="170" text-anchor="end">GND</text>
